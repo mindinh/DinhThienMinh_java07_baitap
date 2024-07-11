@@ -7,7 +7,10 @@ public class Bai4 {
 		Scanner sc = new Scanner(System.in);
 		
 		// cau 4
+		// tạo hằng số N = số lượng chữ số là 5
         final int N = 5;
+        
+        // tạo biến tích lũy cộng 5 số
         int accumulate = 0;
         System.out.println("Input 5 numbers: ");
         accumulate += sc.nextInt();
@@ -15,8 +18,9 @@ public class Bai4 {
         accumulate += sc.nextInt();
         accumulate += sc.nextInt();
         accumulate += sc.nextInt();
-
-        System.out.println("Average of 5 numbers: " +  (accumulate / N));
+        
+        accumulate /= N;
+        System.out.println("Average of 5 numbers: " + accumulate);
         
 
 		sc.close();

@@ -9,6 +9,7 @@ public class Bai6 {
 		Scanner sc = new Scanner(System.in);
 		
 		// cau 6
+		// nhập tiền $
         System.out.println("Enter money in US dollars $: ");
         float dollars = sc.nextFloat();
         float vnd = dollars * 23500;
