@@ -6,6 +6,9 @@ public class Cau1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		final double eightPercentOff = 0.08;
+		final double twelvePercentOff = 0.12;
+		
 		Scanner sc = new Scanner(System.in);
 		
 		String tenMatHang;
@@ -22,9 +25,9 @@ public class Cau1 {
 		System.out.println("Nhập đơn giá: ");
 		dongia = sc.nextInt();
 		
-		// số lượng ko hợp lệ
-		if (soluong <= 0) {
-			System.out.println("Số lượng phải nhiều hơn hoặc bằng 1");
+		// số lượng hoặc đơn giá ko hợp lệ 
+		if (soluong <= 0 || dongia <= 0) {
+			System.out.println("Số lượng phải nhiều hơn hoặc bằng 1 hoặc đơn giá phải hợp lệ.");
 		}
 		else {
 			// nêu số lượng từ 1 - 49 thì lấy tổng = số lượng * dơn giá
@@ -35,13 +38,13 @@ public class Cau1 {
 			}
 			// nếu số lượng từ 50 - 100 thì tổng = số lượng * đơn giá * 8%
 			else if (soluong >= 50 && soluong <= 100) {
-				double tong = soluong * dongia * 0.08;
+				double tong = soluong * dongia * eightPercentOff;
 				
 				System.out.println(soluong + " đơn vị " + tenMatHang + " tổng tiền: " + tong);
 			}
 			// nếu số lượng từ 100 trở lên thì tính 100 sp đầu sẽ bằng 100 * đơn giá cộng với số sp từ 101 * đơn giá * 12%
 			else {
-				double tong = 100 * dongia + (soluong - 100) * dongia * 0.12;
+				double tong = 100 * dongia + (soluong - 100) * dongia * twelvePercentOff;
 				
 				System.out.println(soluong + " đơn vị " + tenMatHang + " tổng tiền: " + tong);
 			}
