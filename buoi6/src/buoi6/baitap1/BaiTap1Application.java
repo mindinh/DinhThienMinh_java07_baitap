@@ -84,35 +84,39 @@ public class BaiTap1Application {
 		
 
 		// cau 4
+		int choice;
 		
-		System.out.println("Nhập 2 số nguyên khác 0: ");
-		int a1 = sc.nextInt();
-		int b1 = sc.nextInt();
-		
-		
-		System.out.println("1: +, 2: -, 3: *, 4: /");
-		int choice = sc.nextInt();
+		do {
+			System.out.println("Nhập 2 số nguyên khác 0: ");
+			int a1 = sc.nextInt();
+			int b1 = sc.nextInt();
 			
-		switch (choice) {
-			case 1:
-				System.out.println("a + b = " + tong(a1, b1));
-				break;
-			case 2:
-				System.out.println("a - b = " + hieu(a1, b1));
-				break;
-			case 3:
-				System.out.println("a * b = " + tich(a1, b1));
-				break;
-			case 4:
-				if (b == 0)
-					System.out.println("Số bị chia phải khác 0");
-				else
-					System.out.println("a / b = " + chia(a1, b1));
-				break;
-			default:
-				System.out.println("Phép tính ko hợp lệ");
-				break;
-		}
+			
+			System.out.println("1: Cộng, 2: Trừ, 3: Nhân, 4: Chia, -1: Thoát");
+			choice = sc.nextInt();
+				
+			switch (choice) {
+				case 1:
+					System.out.println("a + b = " + tong(a1, b1));
+					break;
+				case 2:
+					System.out.println("a - b = " + hieu(a1, b1));
+					break;
+				case 3:
+					System.out.println("a * b = " + tich(a1, b1));
+					break;
+				case 4:
+					if (b1 == 0)
+						System.out.println("Số bị chia phải khác 0");
+					else
+						System.out.println("a / b = " + chia(a1, b1));
+					break;
+				default:
+					System.out.println("Phép tính ko hợp lệ");
+					break;
+			}
+		} while (choice != -1);
+		
 		
 		
 		
