@@ -22,7 +22,7 @@ public class Cau3 {
 		String gioitinhCB3 = "";
 		
 		// nhập thông tin cán bộ 1
-		// nếu năm sinh <= 0 hoăc > năm hiện tại hoặc tên rỗng hoặc giới tính rỗng và giới tính khác Nam hoặc nữ thì nhập lại
+		// nếu năm sinh <= 0 hoăc > năm hiện tại hoặc tên rỗng hoặc giới tính rỗng hoặc giới tính khác Nam và nữ thì nhập lại
 		do {
 			System.out.println("Nhập họ tên cán bộ 1 ");
 			tenCB1 = sc.nextLine();
@@ -31,7 +31,8 @@ public class Cau3 {
 			sc.nextLine();
 			System.out.println("Nhập giới tính cán bộ 1 (Nam/Nữ) ");
 			gioitinhCB1 = sc.nextLine();
-		} while (namsinhCB1 <= 0 || namsinhCB1 > CURRENTYEAR || tenCB1 == "" || (gioitinhCB1 == "" && (!gioitinhCB1.equals("Nam") || !gioitinhCB1.equals("Nữ"))));
+		} while (namsinhCB1 <= 0 || namsinhCB1 > CURRENTYEAR || tenCB1 == "" || gioitinhCB1 == "" 
+				|| (!gioitinhCB1.equals("Nam") && !gioitinhCB1.equals("Nữ")));
 		
 			
 		// nhập thông tin cán bộ 2
@@ -43,7 +44,8 @@ public class Cau3 {
 			sc.nextLine();
 			System.out.println("Nhập giới tính cán bộ 2 (Nam/Nữ) ");
 			gioitinhCB2 = sc.nextLine();
-		} while (namsinhCB2 <= 0 || namsinhCB2 > CURRENTYEAR || tenCB2 == "" || (gioitinhCB2 == "" && (!gioitinhCB1.equals("Nam") || !gioitinhCB1.equals("Nữ"))));
+		} while (namsinhCB2 <= 0 || namsinhCB2 > CURRENTYEAR || tenCB2 == "" || gioitinhCB2 == "" 
+				|| (!gioitinhCB2.equals("Nam") && !gioitinhCB2.equals("Nữ")));
 		
 		// nhập thông tin cán bộ 3
 		do {
@@ -54,28 +56,32 @@ public class Cau3 {
 			sc.nextLine();
 			System.out.println("Nhập giới tính cán bộ 3 (Nam/Nữ) ");
 			gioitinhCB3 = sc.nextLine();
-		} while (namsinhCB3 <= 0 || namsinhCB3 > CURRENTYEAR || tenCB3 == "" || (gioitinhCB3 == "" && (!gioitinhCB1.equals("Nam") || !gioitinhCB1.equals("Nữ"))));
+		} while (namsinhCB3 <= 0 || namsinhCB3 > CURRENTYEAR || tenCB3 == "" || gioitinhCB3 == "" 
+				|| (!gioitinhCB3.equals("Nam") && !gioitinhCB3.equals("Nữ")));
 		
 
-		// nếu năm sinh của 1 cán bộ lớn hơn 2 cán bộ Nam còn lại và giới tính là Nam 
-		// hoặc năm sinh của 1 cán bộ lớn hơn 1 cán bộ Nam và cán bộ còn lại là nữ
+		// nếu năm sinh của 1 cán bộ nam lớn hơn 2 cán bộ Nam còn lại và giới tính là Nam 
+		// hoặc năm sinh của 1 cán bộ nam lớn hơn 1 cán bộ Nam và cán bộ còn lại là nữ
 		// hoặc cả 2 cán bộ còn lại đều là nữ thì sẽ là cán bộ nam nhỏ tuổi nhất
 		if ((namsinhCB1 > namsinhCB2 && namsinhCB1 > namsinhCB3 && gioitinhCB1.equals("Nam") && gioitinhCB2.equals("Nam") && gioitinhCB3.equals("Nam")) 
-				|| (namsinhCB1 > namsinhCB2 && gioitinhCB3.equals("Nữ") && gioitinhCB2.equals("Nam")) || (namsinhCB1 > namsinhCB3 && gioitinhCB2.equals("Nữ") && gioitinhCB3.equals("Nam"))
+				|| (namsinhCB1 > namsinhCB2 && gioitinhCB3.equals("Nữ") && gioitinhCB2.equals("Nam") && gioitinhCB1.equals("Nam")) 
+				|| (namsinhCB1 > namsinhCB3 && gioitinhCB2.equals("Nữ") && gioitinhCB3.equals("Nam") && gioitinhCB1.equals("Nam"))
 				|| (gioitinhCB1.equals("Nam") && gioitinhCB2.equals("Nữ") && gioitinhCB3.equals("Nữ"))) {
 			
 			System.out.println("Cán bộ nam trẻ nhất là " + tenCB1 + " sinh năm " + namsinhCB1);
 		
 		}
 		else if ((namsinhCB2 > namsinhCB1 && namsinhCB2 > namsinhCB3 && gioitinhCB2.equals("Nam") && gioitinhCB1.equals("Nam") && gioitinhCB3.equals("Nam"))
-				|| (namsinhCB2 > namsinhCB1 && gioitinhCB3.equals("Nữ") && gioitinhCB1.equals("Nam")) || (namsinhCB2 > namsinhCB3 && gioitinhCB1.equals("Nữ") && gioitinhCB3.equals("Nam"))
+				|| (namsinhCB2 > namsinhCB1 && gioitinhCB3.equals("Nữ") && gioitinhCB1.equals("Nam") && gioitinhCB2.equals("Nam")) 
+				|| (namsinhCB2 > namsinhCB3 && gioitinhCB1.equals("Nữ") && gioitinhCB3.equals("Nam") && gioitinhCB2.equals("Nam"))
 				|| (gioitinhCB2.equals("Nam") && gioitinhCB1.equals("Nữ") && gioitinhCB3.equals("Nữ"))) {
 		
 			System.out.println("Cán bộ nam trẻ nhất là " + tenCB2 + " sinh năm " + namsinhCB2);
 		
 		}
 		else if ((namsinhCB3 > namsinhCB1 && namsinhCB3 > namsinhCB2 && gioitinhCB3.equals("Nam") && gioitinhCB1.equals("Nam") && gioitinhCB2.equals("Nam"))
-				|| (namsinhCB3 > namsinhCB2 && gioitinhCB1.equals("Nữ") && gioitinhCB2.equals("Nam")) || (namsinhCB3 > namsinhCB1 && gioitinhCB2.equals("Nữ") && gioitinhCB1.equals("Nam"))
+				|| (namsinhCB3 > namsinhCB2 && gioitinhCB1.equals("Nữ") && gioitinhCB2.equals("Nam") && gioitinhCB3.equals("Nam")) 
+				|| (namsinhCB3 > namsinhCB1 && gioitinhCB2.equals("Nữ") && gioitinhCB1.equals("Nam") && gioitinhCB3.equals("Nam"))
 				|| (gioitinhCB3.equals("Nam") && gioitinhCB1.equals("Nữ") && gioitinhCB2.equals("Nữ"))) {
 		
 			System.out.println("Cán bộ nam trẻ nhất là " + tenCB3 + " sinh năm " + namsinhCB3);
