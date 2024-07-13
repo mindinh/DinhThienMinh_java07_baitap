@@ -2,7 +2,9 @@ package buoi6.baitap2;
 
 import java.util.Scanner;
 
+
 public class BaiTap2Application {
+	public static final int soPhutCho = 3;
 	
 	public static double tinhCar(double soKm, double cho) {
 		double tong = 0;
@@ -20,7 +22,7 @@ public class BaiTap2Application {
 			tong = 8000 + 19 * 7500 + (soKm - 19) * 7000;
 		}
 		
-		tong += (int)(cho / 3) * 2000;
+		tong += (int)(cho / soPhutCho) * 2000;
 		
 		return tong;
 	}
@@ -41,7 +43,7 @@ public class BaiTap2Application {
 			tong = 9000 + 19 * 8500 + (soKm - 19) * 8000;
 		}
 		
-		tong += (int)(cho / 3) * 3000;
+		tong += (int)(cho / soPhutCho) * 3000;
 		
 		return tong;
 	}
@@ -62,7 +64,7 @@ public class BaiTap2Application {
 			tong = 10000 + 19 * 9500 + (soKm - 19) * 9000;
 		}
 		
-		tong += (int)(cho / 3) * 3500;
+		tong += (int)(cho / soPhutCho) * 3500;
 		
 		return tong;
 	}
@@ -71,7 +73,7 @@ public class BaiTap2Application {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Nhập loại xe (1. Grab Car, 2.Grab SUV, 3.Grab Black");
+		System.out.println("Nhập loại xe (1. Grab Car, 2.Grab SUV, 3.Grab Black)");
 		int loaiXe = sc.nextInt();
 		
 		System.out.println("Nhập số Km đi được: ");
@@ -81,25 +83,29 @@ public class BaiTap2Application {
 		double tgCho = sc.nextDouble();
 		
 		
-		if (loaiXe == 1) {
-			double tong = tinhCar(soKm, tgCho);
-			System.out.printf("Tổng cho %.2fkm bằng Grab Car với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
-			
-		}
-		else if (loaiXe == 2) {
-			double tong = tinhSUV(soKm, tgCho);
-			System.out.printf("Tổng cho %.2fkm bằng Grab SUV với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
-
-		}
-		else if (loaiXe == 3) {
-			double tong = tinhBlack(soKm, tgCho);
-			System.out.printf("Tổng cho %.2fkm bằng Grab Black với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
-			
-		}
-		else {
+		if (loaiXe <= 0 || loaiXe > 3) {
 			System.out.println("Loại xe ko tồn tại");
 
 		}
+		else {
+			if (loaiXe == 1) {
+				double tong = tinhCar(soKm, tgCho);
+				System.out.printf("Tổng cho %.2fkm bằng Grab Car với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
+				
+			}
+			else if (loaiXe == 2) {
+				double tong = tinhSUV(soKm, tgCho);
+				System.out.printf("Tổng cho %.2fkm bằng Grab SUV với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
+
+			}
+			else if (loaiXe == 3) {
+				double tong = tinhBlack(soKm, tgCho);
+				System.out.printf("Tổng cho %.2fkm bằng Grab Black với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
+				
+			}
+		}
+		
+		
 		
 		
 		

@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class BaiTap1Application {
 	
 	public static double timSoLonNhat(double a, double b, double c) {
+		// nếu 1 số lớn hơn 2 số còn lại thì số đó là lớn nhất
+		// nếu ko thì cả 3 số đều bằng nhau
 		if (a > b && a > c) {
 			return a;
 		}
@@ -15,7 +17,7 @@ public class BaiTap1Application {
 			return c;
 		}
 		else {
-			return -1;
+			return a;
 		}
 		
 	}
@@ -57,6 +59,7 @@ public class BaiTap1Application {
 		double a = sc.nextDouble();
 		double b = sc.nextDouble();
 		double c = sc.nextDouble();
+		
 		
 		System.out.println("Số lớn nhất là " + timSoLonNhat(a, b, c));
 		
