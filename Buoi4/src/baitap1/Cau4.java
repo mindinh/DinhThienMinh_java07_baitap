@@ -10,28 +10,28 @@ public class Cau4 {
 		
 		// tọa độ sinh viên 1
 		String tenSV1 = "A";
-		float xSV1 = 1.0134f;
-		float ySV1 = 2.4512f;
+		double xSV1 = 1.0134f;
+		double ySV1 = 2.4512f;
 		
 		// tọa độ sinh viên 2
 		String tenSV2 = "B";
-		float xSV2 = 4.0234f;
-		float ySV2 = 1.5423f;
+		double xSV2 = 4.0234f;
+		double ySV2 = 1.5423f;
 		
 		// tọa độ sinh viên 3
 		String tenSV3 = "C";
-		float xSV3 = 7.3412f;
-		float ySV3 = 0.1455f;
+		double xSV3 = 7.3412f;
+		double ySV3 = 0.1455f;
 		
 		// tọa độ trường đại học
-		float xUni = 3.3153f;
-		float yUni = 4.0912f;
+		double xUni = 3.3153f;
+		double yUni = 4.0912f;
 		
 		
 		// tính khoảng cách eclid giữa tạo độ 1 sinh viên tới trường học
-		float distanceFromSV1ToUni = (float) Math.sqrt(Math.pow(xUni - xSV1, 2) + Math.pow(yUni - ySV1, 2));
-		float distanceFromSV2ToUni = (float) Math.sqrt(Math.pow(xUni - xSV2, 2) + Math.pow(yUni - ySV2, 2));
-		float distanceFromSV3ToUni = (float) Math.sqrt(Math.pow(xUni - xSV3, 2) + Math.pow(yUni - ySV3, 2));
+		double distanceFromSV1ToUni = Math.sqrt(Math.pow(xUni - xSV1, 2) + Math.pow(yUni - ySV1, 2));
+		double distanceFromSV2ToUni = Math.sqrt(Math.pow(xUni - xSV2, 2) + Math.pow(yUni - ySV2, 2));
+		double distanceFromSV3ToUni = Math.sqrt(Math.pow(xUni - xSV3, 2) + Math.pow(yUni - ySV3, 2));
 		
 		
 		// nếu khoảng cách giữa 1 sinh viên lớn hơn khoảng cách tới trường của 2 sinh viên còn lại thì sv đó xa trường nhất
