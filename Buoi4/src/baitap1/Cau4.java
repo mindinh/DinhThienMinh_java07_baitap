@@ -8,24 +8,57 @@ public class Cau4 {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		
+		String tenSV1 = "";
+		double xSV1 = 0;
+		double ySV1 = 0;
+		
+		String tenSV2 = "";
+		double xSV2 = 0;
+		double ySV2 = 0;
+		
+		String tenSV3 = "";
+		double xSV3 = 0;
+		double ySV3 = 0;
+		
 		// tọa độ sinh viên 1
-		String tenSV1 = "A";
-		double xSV1 = 1.0134f;
-		double ySV1 = 2.4512f;
+		do {
+			System.out.println("Nhập tên sinh viên 1: ");
+			tenSV1 = sc.nextLine();
+			System.out.println("Nhập tọa độ (x, y): ");
+			xSV1 = sc.nextDouble();
+			ySV1 = sc.nextDouble();
+			sc.nextLine();
+
+		} while (tenSV1 == "");
+		
 		
 		// tọa độ sinh viên 2
-		String tenSV2 = "B";
-		double xSV2 = 4.0234f;
-		double ySV2 = 1.5423f;
+		do {
+			System.out.println("Nhập tên sinh viên 2: ");
+			tenSV2 = sc.nextLine();
+			System.out.println("Nhập tọa độ (x, y): ");
+			xSV2 = sc.nextDouble();
+			ySV2 = sc.nextDouble();
+			sc.nextLine();
+			
+		} while (tenSV2 == "");
 		
 		// tọa độ sinh viên 3
-		String tenSV3 = "C";
-		double xSV3 = 7.3412f;
-		double ySV3 = 0.1455f;
+		do {
+			System.out.println("Nhập tên sinh viên 3: ");
+			tenSV3 = sc.nextLine();
+			System.out.println("Nhập tọa độ (x, y): ");
+			xSV3 = sc.nextDouble();
+			ySV3 = sc.nextDouble();
+			sc.nextLine();
+
+		} while (tenSV3 == "");
+		
 		
 		// tọa độ trường đại học
-		double xUni = 3.3153f;
-		double yUni = 4.0912f;
+		System.out.println("Nhập tọa độ trường đại học (x, y): ");
+		double xUni = sc.nextDouble();
+		double yUni = sc.nextDouble();
 		
 		
 		// tính khoảng cách eclid giữa tạo độ 1 sinh viên tới trường học
