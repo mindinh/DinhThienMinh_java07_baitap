@@ -20,7 +20,13 @@ public class Cau1 {
 			System.out.println("Nhập 2 để ra Kéo");
 			System.out.println("Nhập 3 để ra Búa");
 			int playerMove = sc.nextInt();
+			if (playerMove < 1 || playerMove > 3) {
+				System.out.println("Ko hợp lệ");
+				continue;
+			}
+				
 			int compMove = (int) (Math.random() * 3 + 1);
+			System.out.println(compMove);
 			
 			switch (compMove) {
 				case 1: 
