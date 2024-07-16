@@ -8,11 +8,27 @@ public class Cau5 {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		
-		int tienGui = 5000000;
-		int tienMuon = 50000000;
+		int tienGui;
+		do {
+			System.out.println("Nhập số tiền ban đầu");
+			tienGui = sc.nextInt();
+		} while (tienGui < 1);
 		
-		float lai = 0.046f;
+		int tienMuon;
+		do {
+			System.out.println("Nhập số tiền muốn có trong tương lai");
+			tienMuon = sc.nextInt();
+		} while (tienMuon < 1);
 		
+		
+		double lai;
+		do {
+			System.out.println("Nhập % lãi tiết kiệm");
+			lai = sc.nextDouble();
+		} while (lai < 0);
+		
+		
+		lai /= 100;
 		int soNam = 0;
 		while (tienGui < tienMuon) {
 			tienGui *= (1 + lai);

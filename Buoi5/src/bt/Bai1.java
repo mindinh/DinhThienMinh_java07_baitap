@@ -161,6 +161,7 @@ public class Bai1 {
 		}
 		
 		
+		
 		sc.close();
 	}
 
