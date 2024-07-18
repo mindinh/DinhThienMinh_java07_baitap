@@ -7,18 +7,14 @@ public class BaiTap1Application {
 	public static double timSoLonNhat(double a, double b, double c) {
 		// nếu 1 số lớn hơn 2 số còn lại thì số đó là lớn nhất
 		// nếu ko thì cả 3 số đều bằng nhau
-		if (a > b && a > c) {
-			return a;
+		double max = a;
+		if (b > max) {
+			max = b;
 		}
-		else if (b > a && b > c) {
-			return b;
+		if (c > max) {
+			max = c;
 		}
-		else if (c > a && c > b) {
-			return c;
-		}
-		else {
-			return a;
-		}
+		return max;
 		
 	}
 	
@@ -46,8 +42,32 @@ public class BaiTap1Application {
 		return a * b;
 	}
 	
-	public static int chia(int a, int b) {
-		return a / b;
+	public static float chia(int a, int b) {
+		return (float) a / b;
+	}
+	
+	public static void menu(int choice, int a, int b) {
+		
+		switch (choice) {
+		case 1:
+			System.out.println("a + b = " + tong(a, b));
+			break;
+		case 2:
+			System.out.println("a - b = " + hieu(a, b));
+			break;
+		case 3:
+			System.out.println("a * b = " + tich(a, b));
+			break;
+		case 4:
+			if (b == 0)
+				System.out.println("Số bị chia phải khác 0");
+			else
+				System.out.println("a / b = " + chia(a, b));
+			break;
+		default:
+			System.out.println("Phép tính ko hợp lệ");
+			break;
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -84,39 +104,17 @@ public class BaiTap1Application {
 		
 
 		// cau 4
-		int choice;
 		
-		do {
-			System.out.println("Nhập 2 số nguyên khác 0: ");
-			int a1 = sc.nextInt();
-			int b1 = sc.nextInt();
+		System.out.println("Nhập 2 số nguyên khác 0: ");
+		int a1 = sc.nextInt();
+		int b1 = sc.nextInt();
 			
 			
-			System.out.println("1: Cộng, 2: Trừ, 3: Nhân, 4: Chia, -1: Thoát");
-			choice = sc.nextInt();
-				
-			switch (choice) {
-				case 1:
-					System.out.println("a + b = " + tong(a1, b1));
-					break;
-				case 2:
-					System.out.println("a - b = " + hieu(a1, b1));
-					break;
-				case 3:
-					System.out.println("a * b = " + tich(a1, b1));
-					break;
-				case 4:
-					if (b1 == 0)
-						System.out.println("Số bị chia phải khác 0");
-					else
-						System.out.println("a / b = " + chia(a1, b1));
-					break;
-				default:
-					System.out.println("Phép tính ko hợp lệ");
-					break;
-			}
-		} while (choice != -1);
-		
+		System.out.println("1: Cộng, 2: Trừ, 3: Nhân, 4: Chia");
+		int choice = sc.nextInt();
+			
+		menu(choice, a1, b1);	
+
 		
 		
 		

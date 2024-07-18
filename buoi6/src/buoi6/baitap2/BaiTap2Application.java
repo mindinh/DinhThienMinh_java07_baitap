@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class BaiTap2Application {
 	public static final int soPhutCho = 3;
 	
+	// không xuất như hóa đơn
 	public static double tinhCar(double soKm, double cho) {
 		double tong = 0;
 		
@@ -25,6 +26,44 @@ public class BaiTap2Application {
 		tong += (int)(cho / soPhutCho) * 2000;
 		
 		return tong;
+	}
+	
+	public static void tinhCar2(double soKm, double cho) {
+		final double tienKm1 = 8000, tienKm2 = 7500, tienKm3 = 7000, tienCho = 2000;
+		
+		double tong = 0;
+		double km1 = 0, km2 = 0, km3 = 0;
+		
+		if (soKm < 0) {
+			System.out.println("Số Km phải lớn hơn 0");
+			return;
+		}
+		else if (soKm > 0 && soKm <= 1) {
+			km1 = soKm;
+		}
+		else if (soKm > 1 && soKm <= 19) {
+			km1 = 1;
+			km2 = soKm - 1;
+		}
+		else {
+			km1 = 1;
+			km2 = 19;
+			km3 = soKm - 19;
+			
+		}
+		
+		
+		System.out.println("\t\t\tCHI TIẾT HÓA ĐƠN");
+		System.out.print("CHI TIẾT\tSỬ DỤNG(KM)\tĐƠN GIÁ\t\tTHÀNH TIỀN");
+		System.out.print("\nKM ĐẦU TIÊN\t" + km1 + "\t\t" + tienKm1 + "\t\t" + tienKm1 * km1);
+		System.out.print("\nTừ 1 đến " + km2 + "\t" + km2 + "\t\t" + tienKm2 + "\t\t" + tienKm2 * km2);
+		System.out.printf("\nTừ 19\t\t%.2f\t\t%.1f\t\t%.1f",km3, tienKm3, tienKm3 * km3);
+		System.out.print("\nThời gian chờ\t" + cho + "\t\t" + tienCho + "\t\t" + ((int)(cho / soPhutCho) * tienCho));
+		
+		tong += (km1 * tienKm1 + km2 * tienKm2 + km3 * tienKm3);
+		tong += (int)(cho / soPhutCho) * tienCho;
+		System.out.print("\n\t\t\t\tTổng tiền: \t" + tong);
+		
 	}
 	
 	public static double tinhSUV(double soKm, double cho) {
@@ -48,6 +87,44 @@ public class BaiTap2Application {
 		return tong;
 	}
 	
+	public static void tinhSUV2(double soKm, double cho) {
+		final double tienKm1 = 9000, tienKm2 = 8500, tienKm3 = 8000, tienCho = 3000;
+		
+		double tong = 0;
+		double km1 = 0, km2 = 0, km3 = 0;
+		
+		if (soKm < 0) {
+			System.out.println("Số Km phải lớn hơn 0");
+			return;
+		}
+		else if (soKm > 0 && soKm <= 1) {
+			km1 = soKm;
+		}
+		else if (soKm > 1 && soKm <= 19) {
+			km1 = 1;
+			km2 = soKm - 1;
+		}
+		else {
+			km1 = 1;
+			km2 = 19;
+			km3 = soKm - 19;
+			
+		}
+		
+		
+		System.out.println("\t\t\tCHI TIẾT HÓA ĐƠN");
+		System.out.print("CHI TIẾT\tSỬ DỤNG(KM)\tĐƠN GIÁ\t\tTHÀNH TIỀN");
+		System.out.print("\nKM ĐẦU TIÊN\t" + km1 + "\t\t" + tienKm1 + "\t\t" + tienKm1 * km1);
+		System.out.print("\nTừ 1 đến " + km2 + "\t" + km2 + "\t\t" + tienKm2 + "\t\t" + tienKm2 * km2);
+		System.out.printf("\nTừ 19\t\t%.2f\t\t%.1f\t\t%.1f",km3, tienKm3, tienKm3 * km3);
+		System.out.print("\nThời gian chờ\t" + cho + "\t\t" + tienCho + "\t\t" + ((int)(cho / soPhutCho) * tienCho));
+		
+		tong += (km1 * tienKm1 + km2 * tienKm2 + km3 * tienKm3);
+		tong += (int)(cho / soPhutCho) * tienCho;
+		System.out.print("\n\t\t\t\tTổng tiền: \t" + tong);
+		
+	}
+	
 	public static double tinhBlack(double soKm, double cho) {
 		double tong = 0;
 		
@@ -62,11 +139,50 @@ public class BaiTap2Application {
 		}
 		else {
 			tong = 10000 + 19 * 9500 + (soKm - 19) * 9000;
+			
 		}
 		
 		tong += (int)(cho / soPhutCho) * 3500;
-		
+
 		return tong;
+	}
+	
+	public static void tinhBlack2(double soKm, double cho) {
+		final double tienKm1 = 10000, tienKm2 = 9500, tienKm3 = 9000, tienCho = 3500;
+		
+		double tong = 0;
+		double km1 = 0, km2 = 0, km3 = 0;
+		
+		if (soKm < 0) {
+			System.out.println("Số Km phải lớn hơn 0");
+			return;
+		}
+		else if (soKm > 0 && soKm <= 1) {
+			km1 = soKm;
+		}
+		else if (soKm > 1 && soKm <= 19) {
+			km1 = 1;
+			km2 = soKm - 1;
+		}
+		else {
+			km1 = 1;
+			km2 = 19;
+			km3 = soKm - 19;
+			
+		}
+		
+		
+		System.out.println("\t\t\tCHI TIẾT HÓA ĐƠN");
+		System.out.print("CHI TIẾT\tSỬ DỤNG(KM)\tĐƠN GIÁ\t\tTHÀNH TIỀN");
+		System.out.print("\nKM ĐẦU TIÊN\t" + km1 + "\t\t" + tienKm1 + "\t\t" + tienKm1 * km1);
+		System.out.print("\nTừ 1 đến " + km2 + "\t" + km2 + "\t\t" + tienKm2 + "\t\t" + tienKm2 * km2);
+		System.out.printf("\nTừ 19\t\t%.2f\t\t%.1f\t\t%.1f",km3, tienKm3, tienKm3 * km3);
+		System.out.print("\nThời gian chờ\t" + cho + "\t\t" + tienCho + "\t\t" + ((int)(cho / soPhutCho) * tienCho));
+		
+		tong += (km1 * tienKm1 + km2 * tienKm2 + km3 * tienKm3);
+		tong += (int)(cho / soPhutCho) * tienCho;
+		System.out.print("\n\t\t\t\tTổng tiền: \t" + tong);
+		
 	}
 	
 	public static void main(String[] args) {
@@ -89,18 +205,20 @@ public class BaiTap2Application {
 		}
 		else {
 			if (loaiXe == 1) {
-				double tong = tinhCar(soKm, tgCho);
-				System.out.printf("Tổng cho %.2fkm bằng Grab Car với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
+				tinhCar2(soKm, tgCho);
+				//double tong = tinhCar(soKm, tgCho);
+				//System.out.printf("Tổng cho %.2fkm bằng Grab Car với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
 				
 			}
 			else if (loaiXe == 2) {
-				double tong = tinhSUV(soKm, tgCho);
-				System.out.printf("Tổng cho %.2fkm bằng Grab SUV với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
+				tinhSUV2(soKm, tgCho);
+				//double tong = tinhSUV(soKm, tgCho);
+				//System.out.printf("Tổng cho %.2fkm bằng Grab SUV với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
 
 			}
 			else if (loaiXe == 3) {
-				double tong = tinhBlack(soKm, tgCho);
-				System.out.printf("Tổng cho %.2fkm bằng Grab Black với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
+				tinhBlack2(soKm, tgCho);
+				//System.out.printf("Tổng cho %.2fkm bằng Grab Black với %.2f phút chờ = %.2f VNĐ", soKm, tgCho, tong);
 				
 			}
 		}
