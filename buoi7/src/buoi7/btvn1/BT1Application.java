@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BT1Application {
 	
 	public static void bai1(int n) {
-		if (n > 0) {
+		if (n >= 0) {
 			System.out.println("Đây là số nguyên dương");
 		}
 		else {
@@ -76,7 +76,8 @@ public class BT1Application {
 		int tong = 0;
 		
 		for (int i=0; i<=n; i++) {
-			tong += i;
+			if (i % 2 == 0)
+				tong += i;
 		}
 		
 		return tong;
@@ -190,8 +191,14 @@ public class BT1Application {
 		// bai 6
 		System.out.println("Nhập chiều rộng của hình vuông ");
 		double rong = sc.nextDouble();
-		System.out.printf("Diện tích hình vuông " + dienTichHVuong(rong));
-		System.out.printf("\nChu vi hình vuông " + chuViHVuong(rong));
+		if (rong <= 0) {
+			System.out.println("Ko hợp lệ");
+		}
+		else {
+			System.out.printf("Diện tích hình vuông " + dienTichHVuong(rong));
+			System.out.printf("\nChu vi hình vuông " + chuViHVuong(rong));
+		}
+		
 
 		
 		// bai 7
