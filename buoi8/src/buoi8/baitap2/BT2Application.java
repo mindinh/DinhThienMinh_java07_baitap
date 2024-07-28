@@ -1,5 +1,6 @@
 package buoi8.baitap2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BT2Application {
@@ -51,20 +52,25 @@ public class BT2Application {
 	}
 	
 	public static int[] xoaPhanTu(int n, int[] arr, int index) {
-		int[] res = new int[n];
-		int j=0;
-		
-		for(int i=0; i<index; i++) {
-			res[j] = arr[i];
-			j++;
+		if (index < 0 || index >= n) {
+			System.out.println("Vị trí ko hợp lệ");
+			return arr;
 		}
-		
-		for (int i=index+1; i<n; i++) {
-			res[j] = arr[i];
-			j++;
+		else {
+			int[] res = new int[n-1];
+			int j=0;
+			
+			for(int i=0; i<index; i++) {
+				res[j] = arr[i];
+				j++;
+			}
+			
+			for (int i=index+1; i<n; i++) {
+				res[j] = arr[i];
+				j++;
+			}
+			return res;
 		}
-		
-		return res;
 	}
 	
 	public static void demMangSoAm0Duong(int n, int[] arr) {
@@ -82,6 +88,53 @@ public class BT2Application {
 		String res = String.format("Mảng có %o số âm, %o số 0, %o số dương.",  demAm, dem0, demDuong);
 		System.out.println(res);
 		
+	}
+	
+	public static void cau5(String choice, ArrayList<Integer> ds) {
+		Scanner sc = new Scanner(System.in);
+		
+		switch (choice) {
+			case "0":case "xem":
+				System.out.println(ds);
+				break;
+			case "1": case "thêm":
+				System.out.println("Nhập 1 số nguyên");
+				int n = sc.nextInt();
+				ds.add(n);
+				System.out.println("Đã thêm " + n + " vào danh sách");
+				break;
+			case "2": case "xóa":
+				System.out.println("Nhập 1 số nguyên trong mảng muốn xóa");
+				int nToRemove = sc.nextInt();
+				int idxToRemove = ds.indexOf(nToRemove);
+				if (idxToRemove != -1) {
+					ds.remove(Integer.valueOf(nToRemove));
+					System.out.println("Đã xóa " + nToRemove + " khỏi danh sách");
+				}
+				else {
+					System.out.println(nToRemove + " Ko tồn tại");
+				}
+				
+				break;
+			case "3": case "sửa":
+				System.out.println("Nhập 1 số nguyên trong mảng muốn cập nhật");
+				int nToUpdate = sc.nextInt();
+				int idxToUpdate = ds.indexOf(nToUpdate);
+				if (idxToUpdate != -1) {
+					System.out.println("Nhập 1 số nguyên mới");
+					int newN = sc.nextInt();
+					ds.set(idxToUpdate, newN);
+					System.out.println("Đã sửa " + nToUpdate + " thành " + newN + " trong danh sách");
+
+				}
+				else {
+					System.out.println(nToUpdate + " Ko tồn tại");
+				}
+				break;
+			default:
+				System.out.println("Lựa chọn ko hợp lệ");
+				break;
+		}
 	}
 	
 	public static void tinhLaiSuat(double tienGoc, double lai, double tg) {
@@ -102,13 +155,42 @@ public class BT2Application {
 	
 	public static void sapXepMang(int n, int[] arr) {
 		
+		for (int i=0; i<n-1; i++) {
+			boolean swapped = false;
+			for (int j=0; j<n-i-1; j++) {
+				if (arr[j] > arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+					swapped = true;
+				}
+			}
+			
+			if (!swapped)
+				break;
+		}
 		
 	}
 	
 	public static int[] xoaTrungLap(int n, int[] arr) {
-		int[] res = new int[n];
+		// sắp xếp mảng tăng dần để gom những số trùng nhau lại
+		sapXepMang(n, arr);
+		int[] tmp = new int[n];
+		int j = 0;
 		
-
+		for (int i=0; i<n-1; i++) {
+			if (arr[i] != arr[i+1]) {
+				tmp[j] = arr[i];
+				j++;
+			}
+		}
+		tmp[j++] = arr[n-1];
+		
+		int[] res = new int[j];
+		for (int i=0; i<j; i++) {
+			res[i] = tmp[i];
+		}
+		
 		return res;
 	}
 	
@@ -137,14 +219,94 @@ public class BT2Application {
 		
 	}
 	
+	public static void inMang(int n, int[] arr) {
+		System.out.print("Các phần tử trong mảng ");
+		for (int i=0; i<arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println("\n");
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr = nhapMang(10);
+		Scanner sc = new Scanner(System.in);
 		
-		int[] newArr = xoaTrungLap(10, arr);
-		for (int i=0; i<newArr.length; i++) {
-			System.out.println(newArr[i]);
-		}
+		System.out.println("Nhập số lượng phần tử: ");
+		int n = sc.nextInt();
+		int[] arr = nhapMang(n);
+		
+		inMang(n , arr);
+		
+		// cau 1
+		System.out.println("Tổng các phần tử lẻ trong mảng là " + tinhTongSoLe(n, arr));
+		
+		// cau 2
+		System.out.println("\nNhập số nguyên cần đếm trong mảng: ");
+		int n2 = sc.nextInt();
+		System.out.println("Số lần xuất hiện của " + n2 + " trong mảng là " + demX(n, arr, n2));
+		
+		// cau 3
+		System.out.println("\nNhập vị trí phần tử trong mảng cần xóa");
+		int index = sc.nextInt();
+		arr = xoaPhanTu(n, arr, index);
+		inMang(n, arr);
+		
+		// sau khi xóa 1 phần tử thì số lượng phần tử sẽ giảm đi 1
+		n = arr.length;
+		// cau 4
+		demMangSoAm0Duong(n, arr);
+		
+		// cau 5
+		// sử dụng arraylist mới
+		sc.nextLine();
+		ArrayList<Integer> ds = new ArrayList<Integer>();
+		System.out.println("\nNhập 1.Thêm 2.Xóa 3.Sửa 0.Xem ds -1.Thoát");
+		String choice;
+		while (true) {
+			choice = sc.nextLine();
+			if (choice.equals("-1") || choice.equals("thoát")) {
+				break;
+			}
+			cau5(choice, ds);
+			
+		} 
+		
+		// cau 6
+		System.out.println("\nNhập tiền gốc ");
+		double goc = sc.nextDouble();
+		System.out.println("Nhập lãi suất hàng năm ");
+		double lai = sc.nextDouble();
+		System.out.println("Nhập số năm ");
+		double nam = sc.nextDouble();
+		tinhLaiSuat(goc, lai, nam);
+		sc.nextLine();
+		System.out.println("enter để tiếp tục");
+		sc.nextLine();
+		
+		// cau 7
+		inBangNhan();
+		
+		// cau 8
+		// sau khi xóa trùng lặp thì mảng sẽ theo thứ tự tăng dần
+		System.out.println("Mảng xóa phần tử trùng lặp");
+		int[] newArr = xoaTrungLap(n, arr);
+		inMang(newArr.length, newArr);
+		
+		// cau 9
+		// sử dụng mảng sau khi xóa trùng lặp
+		System.out.println("\nNhập 1 số nguyên: ");
+		int n3 = sc.nextInt();
+		System.out.println("Số phần tử lớn hơn " + n3 + " là " + demSoLonHonX(newArr.length, newArr, n3)); 
+		
+		// cau 10
+		// sử dụng mảng sau khi xóa trùng lặp
+		System.out.println("\nNhập 1 số nguyên: ");
+		int n4 = sc.nextInt();
+		System.out.println("Tổng số nguyên tố nhỏ hơn " + n4 + " là " + tongSNTNhoHonX(newArr.length, newArr, n4));
+		
+		
+		
+		sc.close();
 	}
 
 }

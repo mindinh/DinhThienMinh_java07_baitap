@@ -32,18 +32,32 @@ public class Cau2Application {
 		}
 	}
 	
-	public static boolean timSVTheoTen(ArrayList<SinhVien> ds, String ten) {
-		
+	public static void timSVTheoTen(ArrayList<SinhVien> ds, String ten) {
+		int cnt = 0;
+		System.out.println("Sinh viên có tên " + ten + " là ");
 		for (SinhVien sv : ds) {
 			if (sv.getTen().equals(ten)) {
-				return true;
+				System.out.println(sv.getTen() + " " + sv.getMSSV());
+				cnt += 1;
 			}
 		}
 		
-		return false;
+		if (cnt == 0) 
+			System.out.println("Ko có sinh viên tên " + ten);
 	}
 
-	public static boolean timSVTheoMa(ArrayList<SinhVien> ds, String mso) {
+	public static SinhVien timSVTheoMa(ArrayList<SinhVien> ds, String mso) {
+		
+		for (SinhVien sv : ds) {
+			if (sv.getMSSV().equals(mso)) {
+				return sv;
+			}
+		}
+		
+		return null;
+	}
+	
+	public static boolean timSVTheoMa2(ArrayList<SinhVien> ds, String mso) {
 		
 		for (SinhVien sv : ds) {
 			if (sv.getMSSV().equals(mso)) {
@@ -92,7 +106,7 @@ public class Cau2Application {
 				SinhVien sv = new SinhVien();
 				System.out.println("Nhập sv thứ " + (i + 1));
 				sv.nhapSV();
-				if (timSVTheoMa(dssv, sv.getMSSV()) == true) {
+				if (timSVTheoMa2(dssv, sv.getMSSV()) == true) {
 					System.out.println("MSSV đã tồn tại");
 					continue;
 				}
@@ -122,6 +136,22 @@ public class Cau2Application {
 			else {
 				System.out.println("MSSV ko tồn tại");
 			}
+			
+			System.out.println("Nhập tên sinh viên để tìm: ");
+			String ten = sc.nextLine();
+			timSVTheoTen(dssv, ten);
+			
+			System.out.println("Nhập mã sinh viên để tìm: ");
+			String maso = sc.nextLine();
+			SinhVien s = timSVTheoMa(dssv, maso);
+			if (s != null) {
+				System.out.println("Đã tìm thấy sinh viên");
+				s.in1SV();
+			}
+			else {
+				System.out.println("Sinh viên ko tồn tại");
+			}
+			
 		}
 		
 		
