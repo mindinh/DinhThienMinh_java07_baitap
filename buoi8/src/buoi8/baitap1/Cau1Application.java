@@ -37,14 +37,20 @@ public class Cau1Application {
 		Scanner sc = new Scanner(System.in);
 		
 		// cau 1
-		System.out.println("Nhập số lượng sv: ");
-		int n = sc.nextInt();
+		int n = 0;
 		
+		try {
+			System.out.println("Nhập số lượng sv: ");
+			n = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			System.out.println("Nhập 1 số!");
+		}
 		
 		if (n < 1) {
 			System.out.println("Ko hợp lệ");
 		}
 		else {
+			System.out.println("enter để tiếp tục");
 			int i = 0;
 			while (i < n) {
 				

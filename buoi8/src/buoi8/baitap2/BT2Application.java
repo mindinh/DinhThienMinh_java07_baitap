@@ -230,79 +230,95 @@ public class BT2Application {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
+		int n = 0;
 		
-		System.out.println("Nhập số lượng phần tử: ");
-		int n = sc.nextInt();
-		int[] arr = nhapMang(n);
 		
-		inMang(n , arr);
-		
-		// cau 1
-		System.out.println("Tổng các phần tử lẻ trong mảng là " + tinhTongSoLe(n, arr));
-		
-		// cau 2
-		System.out.println("\nNhập số nguyên cần đếm trong mảng: ");
-		int n2 = sc.nextInt();
-		System.out.println("Số lần xuất hiện của " + n2 + " trong mảng là " + demX(n, arr, n2));
-		
-		// cau 3
-		System.out.println("\nNhập vị trí phần tử trong mảng cần xóa");
-		int index = sc.nextInt();
-		arr = xoaPhanTu(n, arr, index);
-		inMang(n, arr);
-		
-		// sau khi xóa 1 phần tử thì số lượng phần tử sẽ giảm đi 1
-		n = arr.length;
-		// cau 4
-		demMangSoAm0Duong(n, arr);
-		
-		// cau 5
-		// sử dụng arraylist mới
-		sc.nextLine();
-		ArrayList<Integer> ds = new ArrayList<Integer>();
-		System.out.println("\nNhập 1.Thêm 2.Xóa 3.Sửa 0.Xem ds -1.Thoát");
-		String choice;
-		while (true) {
-			choice = sc.nextLine();
-			if (choice.equals("-1") || choice.equals("thoát")) {
-				break;
-			}
-			cau5(choice, ds);
-			
+		try {
+			System.out.println("Nhập số lượng phần tử: ");
+			n = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Nhập 1 số!");
 		} 
 		
-		// cau 6
-		System.out.println("\nNhập tiền gốc ");
-		double goc = sc.nextDouble();
-		System.out.println("Nhập lãi suất hàng năm ");
-		double lai = sc.nextDouble();
-		System.out.println("Nhập số năm ");
-		double nam = sc.nextDouble();
-		tinhLaiSuat(goc, lai, nam);
-		sc.nextLine();
-		System.out.println("enter để tiếp tục");
-		sc.nextLine();
-		
-		// cau 7
-		inBangNhan();
-		
-		// cau 8
-		// sau khi xóa trùng lặp thì mảng sẽ theo thứ tự tăng dần
-		System.out.println("Mảng xóa phần tử trùng lặp");
-		int[] newArr = xoaTrungLap(n, arr);
-		inMang(newArr.length, newArr);
-		
-		// cau 9
-		// sử dụng mảng sau khi xóa trùng lặp
-		System.out.println("\nNhập 1 số nguyên: ");
-		int n3 = sc.nextInt();
-		System.out.println("Số phần tử lớn hơn " + n3 + " là " + demSoLonHonX(newArr.length, newArr, n3)); 
-		
-		// cau 10
-		// sử dụng mảng sau khi xóa trùng lặp
-		System.out.println("\nNhập 1 số nguyên: ");
-		int n4 = sc.nextInt();
-		System.out.println("Tổng số nguyên tố nhỏ hơn " + n4 + " là " + tongSNTNhoHonX(newArr.length, newArr, n4));
+		if (n < 1) {
+			System.out.println("Ko hợp lệ");
+		} 
+		else {
+			int[] arr = nhapMang(n);
+			
+			inMang(n , arr);
+			
+			// cau 1
+			System.out.println("Tổng các phần tử lẻ trong mảng là " + tinhTongSoLe(n, arr));
+			
+			// cau 2
+			System.out.println("\nNhập số nguyên cần đếm trong mảng: ");
+			int n2 = sc.nextInt();
+			System.out.println("Số lần xuất hiện của " + n2 + " trong mảng là " + demX(n, arr, n2));
+			
+			// cau 3
+			System.out.println("\nNhập vị trí phần tử trong mảng cần xóa");
+			int index = sc.nextInt();
+			arr = xoaPhanTu(n, arr, index);
+			inMang(n, arr);
+			
+			// sau khi xóa 1 phần tử thì số lượng phần tử sẽ giảm đi 1
+			n = arr.length;
+			// cau 4
+			demMangSoAm0Duong(n, arr);
+			
+			// cau 5
+			// sử dụng arraylist mới
+			sc.nextLine();
+			ArrayList<Integer> ds = new ArrayList<Integer>();
+			System.out.println("\nNhập 1.Thêm 2.Xóa 3.Sửa 0.Xem ds -1.Thoát");
+			String choice;
+			while (true) {
+				// nhập số 1 hoặc input 'thêm' ...
+				choice = sc.nextLine();
+				if (choice.equals("-1") || choice.equals("thoát")) {
+					break;
+				}
+				cau5(choice, ds);
+				
+			} 
+			
+			// cau 6
+			System.out.println("\nNhập tiền gốc ");
+			double goc = sc.nextDouble();
+			System.out.println("Nhập lãi suất hàng năm ");
+			double lai = sc.nextDouble();
+			System.out.println("Nhập số năm ");
+			double nam = sc.nextDouble();
+			tinhLaiSuat(goc, lai, nam);
+			sc.nextLine();
+			System.out.println("enter để tiếp tục");
+			sc.nextLine();
+			
+			// cau 7
+			inBangNhan();
+			
+			// cau 8
+			// sau khi xóa trùng lặp thì mảng sẽ theo thứ tự tăng dần
+			System.out.println("Mảng xóa phần tử trùng lặp");
+			int[] newArr = xoaTrungLap(n, arr);
+			inMang(newArr.length, newArr);
+			
+			// cau 9
+			// sử dụng mảng sau khi xóa trùng lặp
+			System.out.println("\nNhập 1 số nguyên: ");
+			int n3 = sc.nextInt();
+			System.out.println("Số phần tử lớn hơn " + n3 + " là " + demSoLonHonX(newArr.length, newArr, n3)); 
+			
+			// cau 10
+			// sử dụng mảng sau khi xóa trùng lặp
+			System.out.println("\nNhập 1 số nguyên: ");
+			int n4 = sc.nextInt();
+			System.out.println("Tổng số nguyên tố nhỏ hơn " + n4 + " là " + tongSNTNhoHonX(newArr.length, newArr, n4));
+			
+			
+		}
 		
 		
 		

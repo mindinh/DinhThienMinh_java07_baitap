@@ -93,7 +93,13 @@ public class Cau2Application {
 		
 		
 		System.out.println("Nhập số lượng sv: ");
-		int n = sc.nextInt();
+		int n = 0;
+		
+		try {
+			n = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			System.out.println("Nhập 1 số!");
+		}
 		
 		if (n < 1) {
 			System.out.println("Ko hợp lệ");
@@ -127,7 +133,9 @@ public class Cau2Application {
 			inSVDiemTBCaoNhat(dssv);
 			inSVYeu(dssv);
 			
+			System.out.println("Enter để tiếp tục");
 			sc.nextLine();
+			
 			System.out.println("Nhập 1 mã số để xóa: ");
 			String mso = sc.nextLine();
 			if (xoaSVTheoMa(dssv, mso)) {
