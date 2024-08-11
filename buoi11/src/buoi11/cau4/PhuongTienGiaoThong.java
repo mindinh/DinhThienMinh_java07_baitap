@@ -2,7 +2,7 @@ package buoi11.cau4;
 
 import java.util.Scanner;
 
-public class PhuongTienGiaoThong {
+public abstract class PhuongTienGiaoThong {
 	final int CURRENTYEAR = 2024;
 	
 	private String brand;

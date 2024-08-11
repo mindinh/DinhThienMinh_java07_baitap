@@ -1,6 +1,7 @@
 package buoi11.cau3;
 
 public class NhanVienSanXuat extends NhanVien {
+	final double tienMotSP = 5000;
 	private double luongCB;
 	private int soSP;
 
@@ -29,6 +30,6 @@ public class NhanVienSanXuat extends NhanVien {
 	public void tinhLuong() {
 		// TODO Auto-generated method stub
 		super.tinhLuong();
-		setLuong(luongCB + this.soSP * 5000);
+		setLuong(luongCB + this.soSP * tienMotSP);
 	}
 }

@@ -13,13 +13,19 @@ public class Cau3Application {
 
 		NhanVienVanPhong nv2 = new NhanVienVanPhong("Ng van b", "05/12/1994");
 		nv2.setSoNgayLamViec(69);
+		
+		NhanVienVanPhong nv3 = new NhanVienVanPhong();
+		nv3.nhapNV();
+		
 
 		list.add(nv1);
 		list.add(nv2);
+		list.add(nv3);
 		
 		for (NhanVien nv : list) {
 			nv.tinhLuong();
 			nv.xuatNV();
+			
 		}
 	}
 
