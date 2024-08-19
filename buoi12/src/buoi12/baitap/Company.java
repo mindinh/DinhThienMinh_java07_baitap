@@ -383,6 +383,6 @@ public class Company implements ManageCompany {
 	@Override
 	public void sortPersonnelSalaryDesc() {
 		// TODO Auto-generated method stub
-		this.person.sort((a, b) -> (int)(a.calcSalary() - b.calcSalary()));
+		this.person.sort((a, b) -> (int)(b.calcSalary() - a.calcSalary()));
 	}
 }
