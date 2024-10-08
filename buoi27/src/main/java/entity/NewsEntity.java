@@ -1,6 +1,5 @@
-package buoi27;
+package entity;
 
-import java.sql.Date;
 
 public class NewsEntity {
 	private String news_title;
